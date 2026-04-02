@@ -50,6 +50,23 @@ string readValidName()
 	return name;
 }
 
+bool isValidPin(const string&  p)
+{
+	return //add variable;
+}
+
+bool setOrChangePin(string& oin, bool& pinSet)
+{
+	return //add variable;
+}
+
+bool requirePinForAction(string& pin, bool& pinSet)
+{
+	return //add variable;
+}
+
+
+
 int main()
 {
 	
