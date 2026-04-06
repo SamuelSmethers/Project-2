@@ -18,23 +18,19 @@ bool isValidName(const string& name)
 {
 	bool valid=false;
 	
-	while(valid == false) //run loop while the name is considered not accepted
-	{
-		for(int i=0; i<userName.length(); ++i)
+		for(int i=0; i<name.length(); ++i)
 		{
-			if(isalnum(userName.at(i)) || isspace(userName.at(i))) 
+			if(isalnum(name.at(i)) || isspace(name.at(i))) 
 			{
 				valid=true; 
 			}
 			else //if its not a number an alphabetic character or a space it will do the else
 			{
-				cout<<"Username incorrect please re-enter: ";
-				getline(cin, userName); 
-				valid = false; //set acceptable to false to run while loop again since it might have been changed to true on a previous character
-				break; //takes program out of for loop to the while loop which will run again starting character check at beginning of new string
+				valid = false; //set acceptable to false
+				break; //takes program out of for loop 
 			}		
 		}
-	}
+
 	return valid;
 }
 
@@ -44,35 +40,39 @@ string readValidName()
 	cout<<"Enter your name using letters, numbers, and spaces: " << endl;
 	getline(cin,name);
 	
-	isValidName(name);
-	
+	while(isValidName(name)==false)
+	{
+		cout<<"Name can only contain letters, digits, and spaces. Try again:";
+		getline(cin, name);
+	}
 	
 	return name;
 }
 
 bool isValidPin(const string&  p)
 {
-	return //add variable;
+	return ;//add variable
 }
 
 bool setOrChangePin(string& oin, bool& pinSet)
 {
-	return //add variable;
+	return ;//add variable
 }
 
 bool requirePinForAction(string& pin, bool& pinSet)
 {
-	return //add variable;
+	return ;//add variable
 }
 
 
 
 int main()
 {
-	
+	string name;
 	printHeader();
 	
-	readValidName();
+	name = readValidName();
+	cout<< "Welcome " << name << "." << endl;
 	
 	return 0;
 }
