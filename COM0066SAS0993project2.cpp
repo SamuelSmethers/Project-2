@@ -74,21 +74,25 @@ int main()
 	
 	name = readValidName();
 	cout<< "Welcome " << name << "." << endl;
+	cout<<endl;
 
 	int menuSelection;
 	enum menuOptions{Deposit=1,Withdraw=2,ShowAccount=3,Set_ChangePIN=4, EXIT=5,ViewTransaction=6};
 
+	cout << "+-----------------------------------------------------+"<< endl;
 	cout<<"1) Deposit (PIN Required)"<<endl;
 	cout<<"2) Withdraw (PIN Required)"<<endl;
 	cout<<"3) Show Account Detials"<<endl;
 	cout<<"4) Set/Change PIN (4-6 Digits)"<<endl;
 	cout<<"5) EXIT"<<endl;
 	cout<<"6) View Transaction by type"<<endl;
-	
+	cout << "+-----------------------------------------------------+"<< endl;
+
 	do
 	{
 		cout<<"Select an option 1-6:";
 	 	cin>>menuSelection;
+		cout<<endl;
 	} while (menuSelection<0 || menuSelection>6);
 
 	switch(menuSelection)
