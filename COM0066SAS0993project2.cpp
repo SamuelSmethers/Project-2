@@ -70,13 +70,35 @@ bool requirePinForAction(string& pin, bool& pinSet)
 
 int main()
 {
+	float balance;
 	string name;
 	printHeader();
 	bool exit=false;
 
 	name = readValidName();
-	cout<< "Welcome " << name << "." << endl;
+	cout<<"Enter initial balance:";
+	cin>>balance;
 	cout<<endl;
+
+	int accountTypeSelection;
+	enum AccountType{Checking=1,Savings=2,Student=3};
+
+	cout<<"Chose account type:"<<endl;
+	cout<<"1) Checking"<<endl;
+	cout<<"2) Savings"<<endl;
+	cout<<"3) Student"<<endl;
+	do{
+		cout<<"Enter 1-3:";
+		cin>>accountTypeSelection;
+		cout<<endl;
+	}while(!(accountTypeSelection>0 && accountTypeSelection<4));
+
+	cout << "+-----------------------------------------------------+"<< endl;
+	cout<< "Account holder: " << name << endl;
+	cout<<"Account Type: "<<endl;
+	cout<<"Balance: "<<balance<<endl;
+	cout << "+-----------------------------------------------------+"<< endl;
+
 
 	int menuSelection;
 	enum menuOptions{Deposit=1,Withdraw=2,ShowAccount=3,Set_ChangePIN=4, EXIT=5,ViewTransaction=6};
