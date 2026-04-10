@@ -56,9 +56,9 @@ bool isValidPin(const string&  p)
 	bool validPin;
 		if(p.length() > 3 && p.length() < 7)
 		{
-			for(int i = o; i < 6; i++)
+			for(int i = 0; i < 6; i++)
 			{
-				if(isnum(p.at(i)))
+				if(isdigit(p.at(i)))
 				{
 					validPin = true;
 				}
