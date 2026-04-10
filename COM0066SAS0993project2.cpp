@@ -50,17 +50,31 @@ string readValidName()
 	
 	return name;
 }
-/*
+
 bool isValidPin(const string&  p)
 {
-	return ;//add variable
+	if(pin.length() < 4 && pin.length() > 6)
+	{
+		cout << "Invalid PIN: Try again"
+	}
+	else if()
+
+	return true;//add variable
 }
 
-bool setOrChangePin(string& oin, bool& pinSet)
+bool setOrChangePin(string& pin, bool& pinSet)
 {
-	return ;//add variable
-}
+	cout << "Set PIN(4-6 digits): " ;
+	getline(cin, pin);
+	if(isValidPin(pin) == true)
+	{
+		cout << "Comfirm PIN" << endl;
 
+	}
+
+	return true;//add variable
+}
+/*
 bool requirePinForAction(string& pin, bool& pinSet)
 {
 	return ;//add variable
