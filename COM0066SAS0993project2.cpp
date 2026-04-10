@@ -93,7 +93,7 @@ int main()
 		cout<<endl;
 	}while(!(accountTypeSelection>0 && accountTypeSelection<4));
 	
-	switch(AccountChosen)
+	switch(accountTypeSelection)
 	{
 		case Checking:
 			AccountChosen = "Checking";
