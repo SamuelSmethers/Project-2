@@ -42,8 +42,9 @@ string readValidName()
 	
 	while(isValidName(name)==false)
 	{
-		cout<<"Name can only contain letters, digits, and spaces. Try again:";
+		cout<<"Name can only contain letters, digits, and spaces. Try again:"<<endl;
 		getline(cin, name);
+		
 	}
 	
 	return name;
@@ -83,10 +84,11 @@ int main()
 	cout<<"4) Set/Change PIN (4-6 Digits)"<<endl;
 	cout<<"5) EXIT"<<endl;
 	cout<<"6) View Transaction by type"<<endl;
-	cout<<"Select an option 1-6:";
+	
 	do
 	{
-	 cin>>menuSelection;
+		cout<<"Select an option 1-6:";
+	 	cin>>menuSelection;
 	} while (menuSelection<0 || menuSelection>6);
 
 	switch(menuSelection)
