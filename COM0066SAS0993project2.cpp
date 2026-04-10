@@ -72,14 +72,15 @@ int main()
 {
 	string name;
 	printHeader();
-	
+	bool exit=false;
+
 	name = readValidName();
 	cout<< "Welcome " << name << "." << endl;
 	cout<<endl;
 
 	int menuSelection;
 	enum menuOptions{Deposit=1,Withdraw=2,ShowAccount=3,Set_ChangePIN=4, EXIT=5,ViewTransaction=6};
-
+do{
 	cout << "+-----------------------------------------------------+"<< endl;
 	cout<<"1) Deposit (PIN Required)"<<endl;
 	cout<<"2) Withdraw (PIN Required)"<<endl;
@@ -111,7 +112,13 @@ int main()
 
 			break;
 		case EXIT:
-
+			char tempExit;
+			cout<<"Are you sure you want to exit y/n:";
+			cin>>tempExit;
+			if(tempExit=='y' || tempExit=='Y')
+			{
+				exit=true;
+			}
 			break;
 		case ViewTransaction:
 
@@ -121,8 +128,9 @@ int main()
 
 	}
 
+}while(exit==false);
 
- //wtf this fucking sucks
+	cout<<"Thanks for using the Bank Account Simulator. Goodbye!!"<<endl;
 
 	return 0;
 }
