@@ -53,26 +53,42 @@ string readValidName()
 
 bool isValidPin(const string&  p)
 {
-	if(pin.length() < 4 && pin.length() > 6)
-	{
-		cout << "Invalid PIN: Try again"
-	}
-	else if()
+	bool validPin;
+		if(p.length() < 4 && p.length() > 6)
+		{
+			cout << "Invalid PIN: Try again"<<endl;
+			validPin=false;
+		}
 
-	return true;//add variable
+	return validPin;
 }
 
 bool setOrChangePin(string& pin, bool& pinSet)
 {
+	bool validPIN=false;
+	string tempPIN;
+	bool confirm=false;
 	cout << "Set PIN(4-6 digits): " ;
 	getline(cin, pin);
-	if(isValidPin(pin) == true)
+	while(isValidPin(pin)==false)
 	{
-		cout << "Comfirm PIN" << endl;
-
+		cout << "Set PIN(4-6 digits): " ;
+		getline(cin, pin);
+	}
+	
+	while(confirm==false)
+	{
+		cout<<"Confirm PIN: ";
+		getline(cin, tempPIN);
+		if(tempPIN==pin);
+		{
+			confirm=true;
+			pinSet=true;
+			cout<<"Pin Set"<<endl;
+		}
 	}
 
-	return true;//add variable
+	return true;
 }
 /*
 bool requirePinForAction(string& pin, bool& pinSet)
