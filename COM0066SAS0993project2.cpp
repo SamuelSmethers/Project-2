@@ -105,7 +105,7 @@ int main()
 			AccountChosen = "Student";
 			break;
 		default:
-		
+		break;
 	}
 	cout << "+-----------------------------------------------------+"<< endl;
 	cout<< "Account holder: " << name << endl;
