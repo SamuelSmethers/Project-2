@@ -122,7 +122,7 @@ int main()
 	}
 
 
- //wtf
+ //wtf this fucking sucks
 
 	return 0;
 }
