@@ -104,7 +104,8 @@ int main()
 		case Student:
 			AccountChosen = "Student";
 			break;
-		default;
+		default:
+		
 	}
 	cout << "+-----------------------------------------------------+"<< endl;
 	cout<< "Account holder: " << name << endl;
