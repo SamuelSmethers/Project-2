@@ -93,7 +93,7 @@ int main()
 		cout<<"Select an option 1-6:";
 	 	cin>>menuSelection;
 		cout<<endl;
-	} while (menuSelection<0 || menuSelection>6);
+	} while (!(menuSelection>0) && (menuSelection<6));
 
 	switch(menuSelection)
 	{
