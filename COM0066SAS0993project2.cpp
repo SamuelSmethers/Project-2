@@ -91,13 +91,18 @@ int main()
 		cout<<"Enter 1-3:";
 		cin>>accountTypeSelection;
 		cout<<endl;
+		if(isalpha(accountTypeSelection))
+		{
+			cout << "Do not enter a letter or special characters" << endl;
+			accountTypeSelection = 0;
+		}
 	}while(!(accountTypeSelection>0 && accountTypeSelection<4));
 
 	cout << "+-----------------------------------------------------+"<< endl;
 	cout<< "Account holder: " << name << endl;
 	cout<<"Account Type: "<<endl;
 	cout<<"Balance: "<<balance<<endl;
-	cout << "+-----------------------------------------------------+"<< endl;
+	
 
 
 	int menuSelection;
