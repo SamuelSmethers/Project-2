@@ -83,13 +83,11 @@ bool setOrChangePin(string& pin, bool& pinSet)
 	bool validPIN=false;
 	string tempPIN;
 	bool confirm=false;
-	cout << "Set PIN(4-6 digits): " ;
-	getline(cin, pin);
-	while(isValidPin(pin)==false)
+	do
 	{
 		cout << "Set PIN(4-6 digits): " ;
 		getline(cin, pin);
-	}
+	}while(isValidPin(pin)==false);
 	
 	while(confirm==false)
 	{
