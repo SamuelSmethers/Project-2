@@ -48,7 +48,7 @@ string readValidName()
 	
 	return name;
 }
-
+/*
 bool isValidPin(const string&  p)
 {
 	return ;//add variable
@@ -64,7 +64,7 @@ bool requirePinForAction(string& pin, bool& pinSet)
 	return ;//add variable
 }
 
-
+*/
 
 int main()
 {
@@ -73,6 +73,46 @@ int main()
 	
 	name = readValidName();
 	cout<< "Welcome " << name << "." << endl;
-	
+
+	int menuSelection;
+	enum menuOptions{Deposit=1,Withdraw=2,ShowAccount=3,Set_ChangePIN=4, EXIT=5,ViewTransaction=6};
+
+	cout<<"1) Deposit (PIN Required)"<<endl;
+	cout<<"2) Withdraw (PIN Required)"<<endl;
+	cout<<"3) Show Account Detials"<<endl;
+	cout<<"4) Set/Change PIN (4-6 Digits)"<<endl;
+	cout<<"5) EXIT"<<endl;
+	cout<<"6) View Transaction by type"<<endl;
+	cout<<"Select an option 1-6:";
+	do
+	{
+	 cin>>menuSelection;
+	} while (menuSelection<0 || menuSelection>6);
+
+	switch(menuSelection)
+	{
+		case Deposit:
+
+			break;
+		case Withdraw:
+
+			break;
+		case ShowAccount:
+
+			break;
+		case Set_ChangePIN:
+
+			break;
+		case EXIT:
+
+			break;
+		case ViewTransaction:
+
+			break;
+		default:
+		;
+
+	}
+
 	return 0;
 }
