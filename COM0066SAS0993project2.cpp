@@ -70,11 +70,11 @@ bool requirePinForAction(string& pin, bool& pinSet)
 
 int main()
 {
-	float balance;
+	double balance;
 	string name;
 	printHeader();
 	bool exit=false;
-
+	string AccountChosen;
 	name = readValidName();
 	cout<<"Enter initial balance:";
 	cin>>balance;
@@ -92,10 +92,23 @@ int main()
 		cin>>accountTypeSelection;
 		cout<<endl;
 	}while(!(accountTypeSelection>0 && accountTypeSelection<4));
-
+	
+	switch(AccountChosen)
+	{
+		case Checking:
+			AccountChosen = "Checking";
+			break;
+		case Savings:
+			AccountChosen = "Savings";
+			break;
+		case Student:
+			AccountChosen = "Student";
+			break;
+		default;
+	}
 	cout << "+-----------------------------------------------------+"<< endl;
 	cout<< "Account holder: " << name << endl;
-	cout<<"Account Type: "<<endl;
+	cout<<"Account Type: " << AccountChosen <<endl;
 	cout<<"Balance: "<<balance<<endl;
 	
 
