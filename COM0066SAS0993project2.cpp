@@ -54,7 +54,22 @@ string readValidName()
 bool isValidPin(const string&  p)
 {
 	bool validPin;
-		if(p.length() < 4 && p.length() > 6)
+		if(p.length() > 3 && p.length() < 7)
+		{
+			for(int i = o; i < 6; i++)
+			{
+				if(isnum(p.at(i)))
+				{
+					validPin = true;
+				}
+				else
+				{
+					validPin = false;
+					break;
+				}
+			}
+		}
+		else 
 		{
 			cout << "Invalid PIN: Try again"<<endl;
 			validPin=false;
