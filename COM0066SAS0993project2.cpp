@@ -80,15 +80,19 @@ bool setOrChangePin(string& pin, bool& pinSet)
 	{
 		cout<<"Confirm PIN: ";
 		getline(cin, tempPIN);
-		if(tempPIN==pin);
+		if(tempPIN==pin)
 		{
 			confirm=true;
 			pinSet=true;
 			cout<<"Pin Set"<<endl;
 		}
+		else
+		{
+			cout<<"Doesn't Match. Try again."<<endl;
+		}
 	}
 
-	return true;
+	return pinSet;
 }
 /*
 bool requirePinForAction(string& pin, bool& pinSet)
@@ -100,6 +104,8 @@ bool requirePinForAction(string& pin, bool& pinSet)
 
 int main()
 {
+	string pin; 
+	bool pinSet;
 	double balance;
 	string name;
 	printHeader();
@@ -175,7 +181,7 @@ do{
 
 			break;
 		case Set_ChangePIN:
-
+			setOrChangePin(pin,pinSet);
 			break;
 		case EXIT:
 			char tempExit;
