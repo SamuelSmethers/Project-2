@@ -252,9 +252,13 @@ void deposit(double& balance, string& pin, bool& pinSet)
 
 }
 
-void withdraw(double& balance, )
+void withdraw(double& balance, AccountType type, string& pin, bool& pinSet)
 {
-
+	if(requirePinForAction(pin, pinSet)==false)
+	{
+		cout<<"Withdrawal canceled."<<endl;
+		return;
+	}
 }
 
 int main()
@@ -314,7 +318,7 @@ do{
 			deposit(balance, pin, pinSet);
 			break;
 		case Withdraw:
-
+			withdraw(balance, t, pin, pinSet);
 			break;
 		case ShowAccount:
 
