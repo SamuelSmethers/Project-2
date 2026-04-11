@@ -2,6 +2,14 @@
 #include <cstring>
 using namespace std;
 
+const int MAX_TXN = 100;
+int gTXNCount=0;
+
+char transactionType[MAX_TXN];
+double transactionAmount[MAX_TXN];
+string transactionMemo[MAX_TXN];
+
+
 void printHeader()
 {
 	cout << "+-----------------------------------------------------+"<< endl;
@@ -111,11 +119,6 @@ bool setOrChangePin(string& pin, bool& pinSet)
 	return pinSet;
 }
 
-void recordTransaction(char type,double amount,const string& memo)
-{
-
-}
-
 bool requirePinForAction(string& pin, bool& pinSet)
 {
 	string tempPin;
@@ -139,6 +142,14 @@ bool requirePinForAction(string& pin, bool& pinSet)
 		}
 	}
 
+}
+
+void recordTransaction(char type,double amount,const string& memo)
+{
+	if(gTXNCount<MAX_TXN)
+	{
+		
+	}
 }
 
 
@@ -165,14 +176,19 @@ void deposit(double& balance, string& pin, bool& pinSet)
 
 int main()
 {
+
 	string pin="empty"; 
 	bool pinSet=false;
 	double balance;
 	string name;
+
 	printHeader();
+
 	bool exit=false;
 	string AccountChosen;
+
 	name = readValidName();
+
 	cout<<"Enter initial balance:";
 	cin>>balance;
 	cout<<endl;
