@@ -98,8 +98,7 @@ bool setOrChangePin(string& pin, bool& pinSet)
 	do
 	{
 		cout << "Set PIN(4-6 digits): " ;
-		getline(cin,blank);
-		getline(cin, pin);
+		cin>>pin;
 	}while(isValidPin(pin)==false);
 	
 	while(confirm==false)
