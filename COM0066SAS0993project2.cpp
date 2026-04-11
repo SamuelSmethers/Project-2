@@ -264,7 +264,7 @@ do{
 	switch(menuSelection)
 	{
 		case Deposit:
-
+			deposit(balance, pin, pinSet);
 			break;
 		case Withdraw:
 
