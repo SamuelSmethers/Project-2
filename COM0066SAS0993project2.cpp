@@ -104,7 +104,7 @@ bool setOrChangePin(string& pin, bool& pinSet)
 	while(confirm==false)
 	{
 		cout<<"Confirm PIN: ";
-		getline(cin, tempPIN);
+		cin>>tempPIN;
 		if(tempPIN==pin)
 		{
 			confirm=true;
@@ -190,7 +190,7 @@ void deposit(double& balance, string& pin, bool& pinSet)
 	cout<<endl;
 	balance+=amountToAdd;
 	recordTransaction('D',amountToAdd,memo);
-	cout<<"Deposited "<<amountToAdd<<". New Balance: "<<balance;
+	cout<<"Deposited "<<amountToAdd<<". New Balance: "<<balance<<endl;
 
 }
 
