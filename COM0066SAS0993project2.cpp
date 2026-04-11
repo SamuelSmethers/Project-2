@@ -111,6 +111,11 @@ bool setOrChangePin(string& pin, bool& pinSet)
 	return pinSet;
 }
 
+void recordTransaction(char type,double amount,const string& memo)
+{
+
+}
+
 bool requirePinForAction(string& pin, bool& pinSet)
 {
 	string tempPin;
@@ -139,11 +144,23 @@ bool requirePinForAction(string& pin, bool& pinSet)
 
 void deposit(double& balance, string& pin, bool& pinSet)
 {
+	double amountToAdd=0.00;
+	string memo;
 	if(requirePinForAction(pin, pinSet)==false)
 	{
-		cout<<"Deposit canceled"<<endl;
+		cout<<"Deposit canceled."<<endl;
 		return;
 	}
+	cout<<"Enter deposit amount: ";
+	cin>>amountToAdd;
+	cout<<endl;
+	cout<<"Enter memo: ";
+	getline(cin,memo);
+	cout<<endl;
+	balance+=amountToAdd;
+	recordTransaction('D',amountToAdd,memo);
+	cout<<"Deposited "<<amountToAdd<<". New Balance: "<<balance;
+
 }
 
 int main()
