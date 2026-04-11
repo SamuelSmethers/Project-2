@@ -93,10 +93,12 @@ bool setOrChangePin(string& pin, bool& pinSet)
 {
 	bool validPIN=false;
 	string tempPIN;
+	string blank;
 	bool confirm=false;
 	do
 	{
 		cout << "Set PIN(4-6 digits): " ;
+		getline(cin,blank);
 		getline(cin, pin);
 	}while(isValidPin(pin)==false);
 	
@@ -122,6 +124,7 @@ bool setOrChangePin(string& pin, bool& pinSet)
 bool requirePinForAction(string& pin, bool& pinSet)
 {
 	string tempPin;
+	string blank;
 	bool correctEntry;
 	if(pinSet==false)
 	{
@@ -131,6 +134,7 @@ bool requirePinForAction(string& pin, bool& pinSet)
 	else 
 	{
 		cout<< "Enter PIN:";
+		getline(cin,blank);
 		getline(cin,tempPin);
 		if(tempPin!=pin)
 		{
@@ -142,7 +146,7 @@ bool requirePinForAction(string& pin, bool& pinSet)
 			correctEntry= true;
 		}
 	}
-	
+
 	return correctEntry;
 }
 
