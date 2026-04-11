@@ -148,7 +148,22 @@ void recordTransaction(char type,double amount,const string& memo)
 {
 	if(gTXNCount<MAX_TXN)
 	{
-		
+		transactionType[gTXNCount]=type;
+		transactionAmount[gTXNCount]=amount;
+		transactionMemo[gTXNCount]=memo;
+		gTXNCount+=1;
+	}
+	else
+	{
+		for(int i = 99;i>0;--i)
+		{
+			transactionType[i-1]=transactionType[i];
+			transactionAmount[i-1]=transactionAmount[i];
+			transactionMemo[i-1]=transactionMemo[i];
+		}
+		transactionType[99]=type;
+		transactionAmount[99]=amount;
+		transactionMemo[99]=memo;
 	}
 }
 
