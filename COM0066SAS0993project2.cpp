@@ -66,6 +66,7 @@ bool isValidPin(const string&  p)
 				}
 				else
 				{
+					cout << "Invalid PIN: Try again"<<endl;
 					validPin = false;
 					break;
 				}
@@ -109,18 +110,46 @@ bool setOrChangePin(string& pin, bool& pinSet)
 
 	return pinSet;
 }
-/*
+
 bool requirePinForAction(string& pin, bool& pinSet)
 {
-	return ;//add variable
+	string tempPin;
+	if(pinSet==false)
+	{
+		cout<<"No PIN set. Set now."<<endl;
+		setOrChangePin(pin, pinSet);
+	}
+	else 
+	{
+		cout<< "Enter PIN:";
+		getline(cin,tempPin);
+		if(tempPin!=pin)
+		{
+			cout<<"Incorrect PIN."<<endl;
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
 }
 
-*/
+
+void deposit(double& balance, string& pin, bool& pinSet)
+{
+	if(requirePinForAction(pin, pinSet)==false)
+	{
+		cout<<"Deposit canceled"<<endl;
+		return;
+	}
+}
 
 int main()
 {
 	string pin="empty"; 
-	bool pinSet;
+	bool pinSet=false;
 	double balance;
 	string name;
 	printHeader();
