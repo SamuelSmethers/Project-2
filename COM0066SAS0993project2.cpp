@@ -237,7 +237,7 @@ void printRecentTransaction(int maxToShow)
 		cout<<"(No transactions yet)"<<endl;
 	}
 
-	for(int i=0; i<maxToShow; ++i)
+	for(int i=1; i<maxToShow; ++i)
 	{
 		cout<<"["<<transactionType[maxToShow-i]<<"] $"<<transactionAmount[maxToShow-i]<<" | "<< transactionMemo[maxToShow-i]<<endl;
 	}
