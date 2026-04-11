@@ -239,9 +239,31 @@ void printRecentTransaction(int maxToShow)
 
 	for(int i=1; i<=maxToShow; ++i)
 	{
-		cout<<"["<<transactionType[maxToShow-i]<<"] $"<<transactionAmount[maxToShow-i]<<" | "<< transactionMemo[maxToShow-i]<<endl;
+		cout<<"["<<transactionType[maxToShow-i]<<"] $"<<transactionAmount[maxToShow-i]<<" | ";
+		printf("%s \n", &transactionMemo[maxToShow-i]);
 	}
 	cout << "+-----------------------------------------------------+"<< endl;
+}
+
+void ViewTransactionsByType()
+{
+	char selection;
+	do
+	{
+		cout<<"Show which transactions? (D=Deposit, W=Withdraw, F=Fee): ";
+		cin>>selection;
+		selection=toupper(selection);
+	}while((selection!='D') || (selection!='W') || (selection!='F'));
+
+	for(int i=MAX_TXN-1;i>=0;--i)
+	{
+		if(transactionType[i]==selection)
+		{
+			cout<<"["<<transactionType[i]<<"] $"<<transactionAmount[i]<<" | ";
+			printf("%s \n", &transactionMemo[i]);
+		}
+	}
+	
 }
 
 void showDetails(const string& holder, AccountType type, double balance,bool pinSet)
@@ -398,7 +420,7 @@ do{
 			}
 			break;
 		case ViewTransaction:
-
+			ViewTransactionsByType();
 			break;
 		default:
 		;
