@@ -8,6 +8,8 @@ int gTXNCount=0;
 char transactionType[MAX_TXN];
 double transactionAmount[MAX_TXN];
 string transactionMemo[MAX_TXN];
+enum AccountType{Checking=1,Savings=2,Student=3};
+
 
 
 void printHeader()
@@ -149,6 +151,60 @@ bool requirePinForAction(string& pin, bool& pinSet)
 	return correctEntry;
 }
 
+AccountType chooseAccountType()
+{
+	int accountTypeSelection;
+	AccountType t;
+	cout<<"Chose account type:"<<endl;
+	cout<<"1) Checking"<<endl;
+	cout<<"2) Savings"<<endl;
+	cout<<"3) Student"<<endl;
+	do{
+		cout<<"Enter 1-3:";
+		cin>>accountTypeSelection;
+		cout<<endl;
+	}while(!(accountTypeSelection>0 && accountTypeSelection<4));
+
+	switch(accountTypeSelection)
+	{
+		case 1:
+			t = Checking;
+			break;
+		case 2:
+			t =  Savings;
+			break;
+		case 3:
+			t =  Student;
+			break;
+		default:
+			cout<<"Error."<<endl;
+			break;
+	}
+
+	return t;
+}
+
+string accountTypeToString(AccountType t)
+{
+	string AccountChosen;
+	switch(t)
+	{
+		case Checking:
+			AccountChosen = "Checking";
+			break;
+		case Savings:
+			AccountChosen = "Savings";
+			break;
+		case Student:
+			AccountChosen = "Student";
+			break;
+		default:
+		break;
+	}
+
+	return AccountChosen;
+}
+
 void recordTransaction(char type,double amount,const string& memo)
 {
 	if(gTXNCount<MAX_TXN)
@@ -196,6 +252,11 @@ void deposit(double& balance, string& pin, bool& pinSet)
 
 }
 
+void withdraw(double& balance, )
+{
+
+}
+
 int main()
 {
 
@@ -207,7 +268,6 @@ int main()
 	printHeader();
 
 	bool exit=false;
-	string AccountChosen;
 
 	name = readValidName();
 
@@ -215,33 +275,13 @@ int main()
 	cin>>balance;
 	cout<<endl;
 
-	int accountTypeSelection;
-	enum AccountType{Checking=1,Savings=2,Student=3};
+	AccountType t;
+	string AccountChosen;
+	t=chooseAccountType();
+	AccountChosen=accountTypeToString(t);
 
-	cout<<"Chose account type:"<<endl;
-	cout<<"1) Checking"<<endl;
-	cout<<"2) Savings"<<endl;
-	cout<<"3) Student"<<endl;
-	do{
-		cout<<"Enter 1-3:";
-		cin>>accountTypeSelection;
-		cout<<endl;
-	}while(!(accountTypeSelection>0 && accountTypeSelection<4));
 	
-	switch(accountTypeSelection)
-	{
-		case Checking:
-			AccountChosen = "Checking";
-			break;
-		case Savings:
-			AccountChosen = "Savings";
-			break;
-		case Student:
-			AccountChosen = "Student";
-			break;
-		default:
-		break;
-	}
+	
 	cout << "+-----------------------------------------------------+"<< endl;
 	cout<< "Account holder: " << name << endl;
 	cout<<"Account Type: " << AccountChosen <<endl;
