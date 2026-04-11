@@ -177,6 +177,7 @@ void deposit(double& balance, string& pin, bool& pinSet)
 {
 	double amountToAdd=0.00;
 	string memo;
+	string blank;
 	if(requirePinForAction(pin, pinSet)==false)
 	{
 		cout<<"Deposit canceled."<<endl;
@@ -186,6 +187,7 @@ void deposit(double& balance, string& pin, bool& pinSet)
 	cin>>amountToAdd;
 	cout<<endl;
 	cout<<"Enter memo: ";
+	cin>>blank;
 	getline(cin,memo);
 	cout<<endl;
 	balance+=amountToAdd;
