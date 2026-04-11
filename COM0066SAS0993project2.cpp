@@ -249,15 +249,26 @@ void printRecentTransaction(int maxToShow)
 void ViewTransactionsByType()
 {
 	char selection;
-	bool again=false;
+	bool again;
 	do
 	{
 		cout<<"Show which transactions? (D=Deposit, W=Withdraw, F=Fee): ";
 		cin>>selection;
 		selection=toupper(selection);
-		if((selection!='D') || (selection!='W') || (selection!='F'))
+		if(selection=='D')
 		{
-			cout<<"Enter agian. "<< endl;
+			again=false;
+		}
+		else if(selection=='W')
+		{
+			again=false;
+		}
+		else if(selection=='F')
+		{
+			again=false;
+		}
+		else
+		{
 			again=true;
 		}
 	}while(again==true);
