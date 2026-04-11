@@ -254,11 +254,42 @@ void deposit(double& balance, string& pin, bool& pinSet)
 
 void withdraw(double& balance, AccountType type, string& pin, bool& pinSet)
 {
+	double amount=0.00;
+	string blank;
+	string memo;
+	double newBal;
 	if(requirePinForAction(pin, pinSet)==false)
 	{
 		cout<<"Withdrawal canceled."<<endl;
 		return;
 	}
+	cout<<"Enter Withdrawal amount: ";
+	cin>>amount;
+	cout<<endl;
+	cout<<"Enter memo: ";
+	cin>>blank;
+	getline(cin,memo);
+	cout<<endl;
+	newBal= balance-amount;
+
+	if(newBal>=0)
+	{
+		balance=newBal;
+		recordTransaction('W',amount,memo);
+		cout<<"Withdrew "<<amount<<". New Balance: "<<balance<<endl;
+	}
+	else if((newBal<0) && (type==Checking))
+	{
+		balance=newBal-35.0;
+		recordTransaction('W',amount,memo);
+		recordTransaction('F',35.0,"Overdraft Fee");
+		cout<<"Withdrew "<<amount<<" and $35.0 for overdraft fee. New Balance: "<<balance<<endl;
+	}
+	else if((newBal<0) && ((type==Student) || (type==Savings)))
+	{
+		cout<<"Withdrawal Denied."<<endl;
+	}
+
 }
 
 int main()
