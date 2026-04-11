@@ -54,9 +54,11 @@ string readValidName()
 bool isValidPin(const string&  p)
 {
 	bool validPin;
+	int pinLength = p.length();
+
 		if(p.length() > 3 && p.length() < 7)
 		{
-			for(int i = 0; i < 6; i++)
+			for(int i = 0; i < pinLength; i++)
 			{
 				if(isdigit(p.at(i)))
 				{
@@ -117,7 +119,7 @@ bool requirePinForAction(string& pin, bool& pinSet)
 
 int main()
 {
-	string pin; 
+	string pin="empty"; 
 	bool pinSet;
 	double balance;
 	string name;
