@@ -225,7 +225,42 @@ void recordTransaction(char type,double amount,const string& memo)
 		transactionMemo[99]=memo;
 	}
 }
+void printRecentTransaction(int maxToShow)
+{
+	cout << "+----------------- Recent Transactions ----------------+"<< endl;
+	if(maxToShow<=0)
+	{
+		maxToShow=10;
+	}
+	else if(gTXNCount==0)
+	{
+		cout<<"(No transactions yet)"<<endl;
+	}
 
+	for(int i=0; i<maxToShow; ++i)
+	{
+		cout<<"["<<transactionType[maxToShow-i]<<"] $"<<transactionAmount[maxToShow-i]<<" | "<< transactionMemo[maxToShow-i]<<endl;
+	}
+	cout << "+-----------------------------------------------------+"<< endl;
+}
+
+void showDetails(const string& holder, AccountType type, double balance,bool pinSet)
+{
+	cout<<"============== Account Details =============="<<endl;
+	cout<< "Holder: "<< holder<< endl;
+	cout<<"Type: " << accountTypeToString(type)<<endl;
+	cout<< "Balance: "<< balance <<endl;
+	if(pinSet==true)
+	{
+		cout<< "PIN: (set) " << endl;	
+	}
+	else if(pinSet==false)
+	{
+		cout<< "PIN: (not set) " << endl;
+	}
+	printRecentTransaction(10);
+	cout<<"============================================="<<endl;
+}
 
 void deposit(double& balance, string& pin, bool& pinSet)
 {
@@ -348,7 +383,7 @@ do{
 			withdraw(balance, t, pin, pinSet);
 			break;
 		case ShowAccount:
-
+			showDetails(name, t, balance, pinSet);
 			break;
 		case Set_ChangePIN:
 			setOrChangePin(pin,pinSet);
