@@ -122,6 +122,7 @@ bool setOrChangePin(string& pin, bool& pinSet)
 bool requirePinForAction(string& pin, bool& pinSet)
 {
 	string tempPin;
+	bool correctEntry;
 	if(pinSet==false)
 	{
 		cout<<"No PIN set. Set now."<<endl;
@@ -134,14 +135,15 @@ bool requirePinForAction(string& pin, bool& pinSet)
 		if(tempPin!=pin)
 		{
 			cout<<"Incorrect PIN."<<endl;
-			return false;
+			correctEntry= false;
 		}
 		else
 		{
-			return true;
+			correctEntry= true;
 		}
 	}
-
+	
+	return correctEntry;
 }
 
 void recordTransaction(char type,double amount,const string& memo)
