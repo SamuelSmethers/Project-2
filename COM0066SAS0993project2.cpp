@@ -132,8 +132,7 @@ bool requirePinForAction(string& pin, bool& pinSet)
 		cout<<"No PIN set. Set now."<<endl;
 		setOrChangePin(pin, pinSet);
 	}
-	else 
-	{
+	
 		cout<< "Enter PIN:";
 		getline(cin,blank);
 		getline(cin,tempPin);
@@ -146,7 +145,6 @@ bool requirePinForAction(string& pin, bool& pinSet)
 		{
 			correctEntry= true;
 		}
-	}
 
 	return correctEntry;
 }
