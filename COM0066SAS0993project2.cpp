@@ -240,8 +240,8 @@ void printRecentTransaction(int maxToShow)
 
 	for(int i=1; i<=maxToShow; ++i)
 	{
-		cout<<"["<<transactionType[maxToShow-i]<<"] $"<<transactionAmount[maxToShow-i]<<" | ";
-		printf("%s \n", &transactionMemo[maxToShow-i]);
+		cout<<"["<<transactionType[maxToShow-i]<<"] $"<<transactionAmount[maxToShow-i]<<" | "<< endl;
+		//printf("%s \n", &transactionMemo[maxToShow-i]);
 	}
 	cout << "+-----------------------------------------------------+"<< endl;
 }
@@ -277,8 +277,8 @@ void ViewTransactionsByType()
 	{
 		if(transactionType[i]==selection)
 		{
-			cout<<"["<<transactionType[i]<<"] $"<<transactionAmount[i]<<" | ";
-			printf("%s \n", &transactionMemo[i]);
+			cout<<"["<<transactionType[i]<<"] $"<<transactionAmount[i]<<" | "<< endl;
+			//printf("%s \n", &transactionMemo[i]);
 		}
 	}
 	
