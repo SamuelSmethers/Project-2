@@ -249,12 +249,18 @@ void printRecentTransaction(int maxToShow)
 void ViewTransactionsByType()
 {
 	char selection;
+	bool again=false;
 	do
 	{
 		cout<<"Show which transactions? (D=Deposit, W=Withdraw, F=Fee): ";
 		cin>>selection;
 		selection=toupper(selection);
-	}while((selection!='D') || (selection!='W') || (selection!='F'));
+		if((selection!='D') || (selection!='W') || (selection!='F'))
+		{
+			cout<<"Enter agian. "<< endl;
+			again=true;
+		}
+	}while(again==true);
 
 	for(int i=MAX_TXN-1;i>=0;--i)
 	{
